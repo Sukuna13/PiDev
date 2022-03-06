@@ -14,15 +14,16 @@ import java.util.Objects;
  * @author Asus
  */
 public class CourSalle {
-    private String nomCour,info;
+
+    private String nomCour, info;
     private Date date;
     private Time tCour;
-    private int idCour,idSalle,nbrActuel,nbrTotal;
+    private int idCour, idSalle, nbrActuel, nbrTotal;
 
     public CourSalle() {
     }
 
-    public CourSalle(String nomCour, String info, Date date, Time tCour, int idSalle, int nbrTotal) {
+    public CourSalle(int idSalle, String nomCour, Date date, Time tCour, int nbrTotal, String info) {
         this.nomCour = nomCour;
         this.info = info;
         this.date = date;
@@ -43,7 +44,7 @@ public class CourSalle {
         return date;
     }
 
-    public Time gettCour() {
+    public Time getTCour() {
         return tCour;
     }
 
@@ -75,7 +76,7 @@ public class CourSalle {
         this.date = date;
     }
 
-    public void settCour(Time tCour) {
+    public void setTCour(Time tCour) {
         this.tCour = tCour;
     }
 
@@ -99,9 +100,5 @@ public class CourSalle {
     public String toString() {
         return "CourSalle{" + "nomCour=" + nomCour + ", info=" + info + ", date=" + date + ", tCour=" + tCour + ", idCour=" + idCour + ", idSalle=" + idSalle + ", nbrActuel=" + nbrActuel + ", nbrTotal=" + nbrTotal + '}';
     }
-    
-   
 
-
-    
 }
