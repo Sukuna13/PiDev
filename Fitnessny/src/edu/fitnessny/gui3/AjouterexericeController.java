@@ -8,7 +8,6 @@ import edu.finessny.services.ExerciceCRUD;
 import edu.finessny.utils.MyConnection;
 import edu.fitnessny.entities.Exercice;
 import edu.fitnessny.entities.Programme;
-import edu.fitnessny.gui2.AjouterprogrammeController;
 
 import java.io.IOException;
 import java.lang.reflect.Executable;
@@ -162,7 +161,7 @@ public class AjouterexericeController implements Initializable {
     private void NavProg(ActionEvent event) throws IOException {
 //            
 
-  root = FXMLLoader.load(getClass().getResource("/Users/rocky/Documents/java/Fitnessny/src/edu/fitnessny/gui2/ajouterprogramme.fxml"));
+  root = FXMLLoader.load(getClass().getResource("/edu/fitnessny/gui2/ajouterprogramme.fxml"));
 
   stage = (Stage)((Node)event.getSource()).getScene().getWindow();
   scene = new Scene(root);

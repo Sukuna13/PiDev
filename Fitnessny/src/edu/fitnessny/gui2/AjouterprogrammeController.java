@@ -10,6 +10,7 @@ import edu.fitnessny.entities.Programme;
 import edu.finessny.utils.MyConnection;
 import edu.fitnessny.gui3.AfficherExerciceController;
 import edu.fitnessny.gui3.AjouterexericeController;
+import edu.fitnessny.gui3.AjouterexericeController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

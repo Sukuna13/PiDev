@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package edu.finessny.services;
-
 import com.mysql.cj.conf.PropertyKey;
 import edu.finessny.utils.MyConnection;
 import edu.fitnessny.entities.Programme;
@@ -290,6 +289,9 @@ try {
 //   
 //   
 //}}
+    
+    
+    
     
     
     

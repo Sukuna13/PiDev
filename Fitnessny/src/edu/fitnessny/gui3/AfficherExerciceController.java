@@ -9,7 +9,6 @@ import edu.finessny.services.ExerciceCRUD;
 import edu.finessny.services.ProgrammeCRUD;
 import edu.finessny.utils.MyConnection;
 import edu.fitnessny.entities.Programme;
-import edu.fitnessny.gui2.AjouterprogrammeController;
 import javafx.event.EventHandler;
 
 import java.io.IOException;

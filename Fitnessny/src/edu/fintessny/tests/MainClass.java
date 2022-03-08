@@ -4,12 +4,20 @@
  */
 package edu.fintessny.tests;
 
+
+
+
 import edu.finessny.services.ExerciceCRUD;
 import edu.finessny.services.ProgrammeCRUD;
 import edu.finessny.utils.MyConnection;
 import edu.fitnessny.entities.Exercice;
 import edu.fitnessny.entities.Programme;
 
+
+
+
+
+ 
 /**
  *
  * @author rocky
@@ -36,15 +44,20 @@ public class MainClass {
         //***************** Exercice *******************//
         
         //***************** Programme ********************//
-    ProgrammeCRUD pcd = new ProgrammeCRUD();
+//    ProgrammeCRUD pcd = new ProgrammeCRUD();
  // Programme p2 = new Programme("P3", "rester en forme", "Dez lahdidd","bras");
 //  Exercice e = new Exercice(1);
  //  pcd.ajouterProgramme(p2);
-    System.out.println(pcd.afficherProgramme());
+//    System.out.println(pcd.afficherProgramme());
         //   pcd.supprimerProgramme();
         // System.out.println(pcd.afficherProgramme());
         // pcd.modifierProgramme();
         //  System.out.println(pcd.afficherProgramme());
         //***************** Programme ********************//
+        
+       
+          
+
+//***************** TelegramBot ********************//     
     }
 }
