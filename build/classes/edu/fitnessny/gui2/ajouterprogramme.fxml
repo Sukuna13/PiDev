@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="597.0" prefWidth="830.0" style="-fx-background-color: #BA76E9#BA76E9 #BA76E9#BA76E9;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fitnessny.gui2.AjouterprogrammeController">
+   <children>
+      <AnchorPane layoutX="1.0" layoutY="-2.0" prefHeight="605.0" prefWidth="258.0" style="-fx-background-color: #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC;">
+         <children>
+            <Button fx:id="btnModifier" layoutX="38.0" layoutY="454.0" mnemonicParsing="false" onAction="#update" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #F5805B#F5805B;" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label layoutX="100.0" layoutY="53.0" text="Nom  :" />
+            <TextField fx:id="tfNom" layoutX="37.0" layoutY="85.0" />
+            <Label layoutX="91.0" layoutY="128.0" text="Objectif  :" />
+            <TextField fx:id="tfObjectif" layoutX="31.0" layoutY="163.0" prefHeight="26.0" prefWidth="176.0" style="-fx-border-color: #F0EFF8 #F0EFF8;" />
+            <Label layoutX="86.0" layoutY="202.0" text="Categorie  :" />
+            <TextField fx:id="tfCategorie" layoutX="32.0" layoutY="233.0" prefHeight="26.0" prefWidth="176.0" style="-fx-border-color: #F0EFF8 #F0EFF8;" />
+            <Label layoutX="46.0" layoutY="280.0" text="Description Programme :" />
+            <TextArea fx:id="taDescription" layoutX="31.0" layoutY="305.0" prefHeight="70.0" prefWidth="176.0" style="-fx-border-color: #F0EFF8 #F0EFF8;" />
+            <Button fx:id="btnAjouter" layoutX="37.0" layoutY="404.0" mnemonicParsing="false" onAction="#SaveProgramme" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #F5805B#F5805B #F5805B#F5805B;" text="Ajouter " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSupprimer" layoutX="38.0" layoutY="510.0" mnemonicParsing="false" onAction="#delete" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #F5805B#F5805B;" text="Supprimer" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TableView fx:id="ProgTable" layoutX="268.0" layoutY="153.0" prefHeight="370.0" prefWidth="548.0">
+         <columns>
+            <TableColumn fx:id="nom" prefWidth="118.0" text="Nom " />
+            <TableColumn fx:id="objectif" prefWidth="153.0" text="Objectif" />
+            <TableColumn fx:id="categorie" prefWidth="138.0" text="Categorie" />
+            <TableColumn fx:id="description" prefWidth="138.0" text="Description " />
+         </columns>
+      </TableView>
+      <Button fx:id="btnrefresh" layoutX="755.0" layoutY="122.0" mnemonicParsing="false" onAction="#RefreshTable" style="-fx-background-color: #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC;" text="Refresh" />
+      <Label layoutX="268.0" layoutY="40.0" text="Search Programme : " textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfsearch" layoutX="268.0" layoutY="73.0" onAction="#Search" prefHeight="39.0" prefWidth="539.0" promptText="Search">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <ButtonBar layoutX="616.0" layoutY="543.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="btnajoutex" mnemonicParsing="false" onAction="#NavExercice" prefHeight="31.0" prefWidth="260.0" style="-fx-background-color: #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC;" text="Ajouter des Exercices" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
