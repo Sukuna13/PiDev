@@ -1,0 +1,7 @@
+
+build.xml
+build.xml
+build/built-jar.properties
+*.properties
+nbproject/build-impl.xml
+nbproject/genfiles.properties
