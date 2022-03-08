@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="700.0" styleClass="gradient-background" stylesheets="@statistiques.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.StatistiquesController">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="698.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="20.0" top="5.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="190.0" prefWidth="684.0" styleClass="container" stylesheets="@statistiques.css">
+               <VBox.margin>
+                  <Insets left="-3.0" />
+               </VBox.margin>
+               <children>
+                  <Label text="Social Media" textFill="#eedddd">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0">
+                           <children>
+                              <ImageView fitHeight="41.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../youtube1.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="85.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="50 new" textFill="#eedddd">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="75.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="YouTube Subscribers" textFill="#eedddd">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0">
+                           <children>
+                              <ImageView fitHeight="41.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../insta.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="85.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="10 new" textFill="#eedddd">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="60.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Instagram Followers" textFill="#eedddd">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <ImageView fitHeight="41.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../fcb.PNG" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets left="85.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="150 new" textFill="#eedddd">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="60.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="abonnés facebook" textFill="#eedddd">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="170.0" top="155.0" />
+         </BorderPane.margin>
+         <children>
+            <VBox prefHeight="190.0" prefWidth="342.0" spacing="20.0" styleClass="container" stylesheets="@statistiques.css">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Nombre d'abonnements" textFill="#eedddd">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <LineChart fx:id="linechart" onMouseClicked="#inilLinechart">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </LineChart>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="204.0" prefWidth="331.0" spacing="40.0" styleClass="container" stylesheets="@statistiques.css">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Répartition des ventes par catégorie" textFill="#eedddd">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <PieChart fx:id="piechart" onMouseClicked="#initpiechart" prefHeight="175.0" prefWidth="331.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="10.0" />
+                     </padding></PieChart>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <bottom>
+      <HBox prefHeight="151.0" prefWidth="700.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="124.0" prefWidth="672.0" spacing="50.0" stylesheets="@statistiques.css">
+               <children>
+                  <HBox prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" styleClass="container" stylesheets="@statistiques.css">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Nombre d'employés" textFill="#eedddd">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="30" textFill="#eedddd">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="75.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" styleClass="container">
+                           <children>
+                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="Nombre des clients" textFill="#eedddd">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="CENTER" contentDisplay="CENTER" text="280" textFill="#eedddd">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="60.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="20.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
