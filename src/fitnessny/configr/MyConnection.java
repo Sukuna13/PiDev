@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class MyConnection {
 
-	public String url="jdbc:mysql://localhost:3306/fitnessni";
-	public String login="skander";
-	public String pwd="devenstart";
+	public String url="jdbc:mysql://localhost:3306/lastfitnessni";
+	public String login="root";
+	public String pwd="";
 	Connection cnx;
 	public static MyConnection instance;
 	private MyConnection() {

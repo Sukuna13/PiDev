@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Coach.GestionDisponibiliteController">
+   <children>
+      <DatePicker fx:id="datePicker" editable="false" layoutX="291.0" layoutY="49.0" />
+      <ToggleButton fx:id="H7" layoutX="70.0" layoutY="111.0" mnemonicParsing="false" text="7H" />
+      <ToggleButton fx:id="H13" layoutX="594.0" layoutY="111.0" mnemonicParsing="false" text="13H" />
+      <ToggleButton fx:id="H10" layoutX="316.0" layoutY="111.0" mnemonicParsing="false" text="10H" />
+      <Button fx:id="confirmer" layoutX="629.0" layoutY="50.0" mnemonicParsing="false" onAction="#ajouterDisponibilite" text="Ajouter" />
+      <ToggleButton fx:id="H18" layoutX="457.0" layoutY="169.0" mnemonicParsing="false" text="18H" />
+      <ToggleButton fx:id="H17" layoutX="368.0" layoutY="169.0" mnemonicParsing="false" text="17H" />
+      <ToggleButton fx:id="H16" layoutX="279.0" layoutY="169.0" mnemonicParsing="false" text="16H" />
+      <ToggleButton fx:id="H15" layoutX="200.0" layoutY="169.0" mnemonicParsing="false" text="15H" />
+      <ToggleButton fx:id="H14" layoutX="112.0" layoutY="169.0" mnemonicParsing="false" text="14H" />
+      <ToggleButton fx:id="H11" layoutX="403.0" layoutY="111.0" mnemonicParsing="false" text="11H" />
+      <ToggleButton fx:id="H8" layoutX="157.0" layoutY="111.0" mnemonicParsing="false" text="8H" />
+      <ToggleButton fx:id="H20" layoutX="641.0" layoutY="169.0" mnemonicParsing="false" text="20H" />
+      <ToggleButton fx:id="H9" layoutX="236.0" layoutY="111.0" mnemonicParsing="false" text="9H" />
+      <ToggleButton fx:id="H12" layoutX="498.0" layoutY="111.0" mnemonicParsing="false" text="12H" />
+      <ToggleButton fx:id="H19" layoutX="550.0" layoutY="169.0" mnemonicParsing="false" text="19H" />
+      <Button fx:id="retour" layoutX="103.0" layoutY="34.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+      <TableView fx:id="table" layoutX="237.0" layoutY="236.0" prefHeight="231.0" prefWidth="329.0">
+         <columns>
+            <TableColumn fx:id="date" prefWidth="164.0" text="Date" />
+            <TableColumn fx:id="time" prefWidth="164.0" text="Heure" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimer" disable="true" layoutX="666.0" layoutY="344.0" mnemonicParsing="false" onAction="#supprimerDsiponibilite" text="Supprimer" />
+      <TextField fx:id="recherche" layoutX="19.0" layoutY="360.0" />
+      <Label layoutX="36.0" layoutY="299.0" text="Recherche" />
+      <RadioButton fx:id="bydate" layoutX="126.0" layoutY="323.0" mnemonicParsing="false" onAction="#choice" text="Par Date" />
+      <RadioButton fx:id="bytime" layoutX="122.0" layoutY="288.0" mnemonicParsing="false" onAction="#choice" text="Par Heure" />
+   </children>
+</AnchorPane>

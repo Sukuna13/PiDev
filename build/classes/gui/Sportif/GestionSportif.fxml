@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Sportif.GestionSportifController">
+   <children>
+      <Label layoutX="356.0" layoutY="4.0" text="Bienvenue" />
+      <Button fx:id="cours" layoutX="714.0" layoutY="19.0" mnemonicParsing="false" onAction="#listecours" text="Cours" />
+      <Button fx:id="coachs" layoutX="23.0" layoutY="19.0" mnemonicParsing="false" onAction="#listeCoachsDisponibilites" text="Coachs" />
+      <TableView fx:id="tableabonnement" layoutX="164.0" layoutY="35.0" prefHeight="100.0" prefWidth="453.0">
+        <columns>
+          <TableColumn fx:id="salle" prefWidth="109.0" text="Salle" />
+          <TableColumn fx:id="datedebut" prefWidth="189.0" text="Date Debut" />
+            <TableColumn fx:id="datefin" prefWidth="154.0" text="Date Fin" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablecoursalle" layoutX="2.0" layoutY="154.0" prefHeight="183.0" prefWidth="800.0">
+         <columns>
+            <TableColumn fx:id="salle1" prefWidth="122.0" text="Salle" />
+            <TableColumn fx:id="nom" prefWidth="132.0" text="Nom Cour" />
+            <TableColumn fx:id="date" prefWidth="123.0" text="Date" />
+            <TableColumn fx:id="tCour" minWidth="0.0" prefWidth="111.0" text="Heure" />
+            <TableColumn fx:id="nbrActuel" minWidth="0.0" prefWidth="104.0" text="Nombre Actuel" />
+            <TableColumn fx:id="nbrTotal" minWidth="0.0" prefWidth="102.0" text="Nombre Total" />
+            <TableColumn fx:id="info" prefWidth="105.0" text="Information" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimerCour" disable="true" layoutX="39.0" layoutY="104.0" mnemonicParsing="false" onAction="#supprimerReservationCour" text="Annuler" />
+      <TableView fx:id="tablecourcoach" layoutX="201.0" layoutY="343.0" prefHeight="142.0" prefWidth="586.0">
+         <columns>
+            <TableColumn fx:id="nomprenom" prefWidth="167.0" text="Coach" />
+            <TableColumn fx:id="date1" prefWidth="135.0" text="Date" />
+            <TableColumn fx:id="heure" prefWidth="162.0" text="Heure" />
+            <TableColumn fx:id="etat" prefWidth="121.0" text="Etat" />
+         </columns>
+      </TableView>
+      <Button fx:id="supprimerreservation" disable="true" layoutX="59.0" layoutY="428.0" mnemonicParsing="false" onAction="#annulerReservation" text="Annuler" />
+   </children>
+</AnchorPane>

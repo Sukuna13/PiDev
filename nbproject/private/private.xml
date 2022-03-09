@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/utils/JavaMail.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/services/CourCoachCRUD.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/utils/MyConnection.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Coach/GestionCoachController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/fitnessny/entities/Utilisateur.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/fitnessny/service/GetService.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/InscriptionController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Coach/GestionDemandesController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/ResetPassword.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Sportif/ListeCoachsDisponibilitesController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Sportif/GestionSportifController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/TestMain/CRUDMain.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Salle/AjouterCourController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/UpdateUser.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Coach/GestionDisponibiliteController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/fitnessny/configr/MyConnection.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/Main.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Sportif/ReserverCourSalleController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/AdminHome.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/gui/Salle/GestionCourController.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/AdminAddUserCtrl.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/services/CourSalleCRUD.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/PIDEV/src/application/LoginController.java</file>
+        </group>
+    </open-files>
+</project-private>
