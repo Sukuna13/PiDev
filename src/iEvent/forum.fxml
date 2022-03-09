@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="page" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iEvent.ForumController">
+   <children>
+      <Text fx:id="titre" fill="#1b63ab" layoutX="399.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forum" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="42.0" />
+         </font>
+      </Text>
+      <Button fx:id="reviewbtn" layoutX="655.0" layoutY="528.0" mnemonicParsing="false" onAction="#Gotoreview" prefHeight="31.0" prefWidth="156.0" text="Review" textFill="#0817ee" />
+      <Button fx:id="retourbtn" layoutX="98.0" layoutY="528.0" mnemonicParsing="false" onAction="#Retour" prefHeight="31.0" prefWidth="180.0" text="Retour" textFill="#2c17e4" />
+      <TableView fx:id="TableForum" layoutX="113.0" layoutY="160.0" prefHeight="200.0" prefWidth="675.0">
+        <columns>
+          <TableColumn fx:id="col_categorie" prefWidth="174.0" text="Categorie" />
+          <TableColumn fx:id="col_rating" prefWidth="171.0" text="Rating" />
+            <TableColumn fx:id="col_message" prefWidth="329.0" text="Message" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

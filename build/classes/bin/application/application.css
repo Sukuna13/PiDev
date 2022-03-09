@@ -1,0 +1,28 @@
+.root{
+	-fx-background-image: url('fitnessBack2.png');
+	-fx-background-size: cover; 
+}
+
+.button{
+	-fx-background-color: #0D88CA;
+	-fx-border-radius: 50% ;
+	-fx-cursor: hand ;
+}
+
+.textField{
+	-fx-border-radius: 0px;
+}
+
+
+.choiceBox {
+  -fx-background-color: #E2E2E3 ;
+  -fx-mark-color:  #5FC4FA; 
+}
+
+.adminRoot{
+	-fx-background-color: white;
+}
+
+.userimage{
+	-fx-border-radius: 20%;
+}

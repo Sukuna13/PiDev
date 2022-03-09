@@ -1,0 +1,21 @@
+.gradient-background{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #D91F4E, #FF854C);
+}
+
+.container{
+    -fx-background-color: rgba(255, 255,255, 0.2);
+    -fx-background-radius: 10;
+}
+
+.axis{
+    -tx-stroke: #fff;
+    -fx-fill: #fff;
+    -tx-font-size: 24;
+    -fx-tick-label-fill: #fff;
+}
+
+.pane{
+    -fx-background-color: #DC143C
+     
+    
+}

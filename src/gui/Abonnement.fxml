@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AbonnementController">
+   <children>
+      <AnchorPane layoutX="7.0" layoutY="14.0" prefHeight="500.0" prefWidth="672.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="408.0" fitWidth="695.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Capture.PNG" />
+               </image>
+            </ImageView>
+            <TableView fx:id="table_abn" layoutX="-1.0" layoutY="284.0" prefHeight="216.0" prefWidth="689.0">
+              <columns>
+                <TableColumn fx:id="nompro" prefWidth="95.0" text="Nom Client" />
+                <TableColumn fx:id="prenompro" prefWidth="101.0" text="Prenom Client" />
+                  <TableColumn fx:id="datedpro" prefWidth="115.0" text="Dade debut" />
+                  <TableColumn fx:id="datefinpro" prefWidth="135.0" text="Date fin" />
+              </columns>
+            </TableView>
+            <Button layoutX="344.0" layoutY="238.0" mnemonicParsing="false" onAction="#addanb" prefHeight="30.0" prefWidth="150.0" text="Ajouter" />
+            <TextField fx:id="txtnom" layoutX="125.0" layoutY="109.0" promptText="nom" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="120.0">
+               <effect>
+                  <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+               </effect></TextField>
+            <TextField fx:id="txtprenom" layoutX="125.0" layoutY="179.0" promptText="prenom" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="170.0">
+               <effect>
+                  <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+               </effect></TextField>
+            <DatePicker fx:id="dated" layoutX="441.0" layoutY="114.0" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="120.0" />
+            <DatePicker fx:id="datef" layoutX="441.0" layoutY="167.0" AnchorPane.leftAnchor="490.0" AnchorPane.topAnchor="170.0" />
+            <Label layoutX="51.0" layoutY="126.0" text="Nom:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="43.0" layoutY="183.0" text="Prenom:" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="170.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="336.0" layoutY="113.0" text="Date de Debut:" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="120.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Label layoutX="344.0" layoutY="175.0" text="Date de Fin:" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="170.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></Label>
+            <Button layoutX="514.0" layoutY="238.0" mnemonicParsing="false" onAction="#aficher" prefHeight="30.0" prefWidth="150.0" text="Afficher" />
+            <Label layoutX="26.0" layoutY="34.0" text="Gestion d'abonnements" textFill="#d3ce68">
+               <font>
+                  <Font name="System Bold" size="34.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
