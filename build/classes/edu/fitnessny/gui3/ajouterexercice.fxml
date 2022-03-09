@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="ajout" prefHeight="500.0" prefWidth="692.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fitnessny.gui3.AjouterexericeController">
+   <children>
+      <Label layoutX="194.0" layoutY="331.0" text="Description : " textFill="#dbb421">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Button fx:id="ajoutexercice" layoutX="183.0" layoutY="407.0" mnemonicParsing="false" onAction="#SaveExercice" prefHeight="43.0" prefWidth="186.0" style="-fx-background-color: #3D9EFC#3D9EFC;" text="Ajouter " />
+      <Label layoutX="156.0" layoutY="220.0" text="Nombre de serie :" textFill="#dbb421">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="401.0" layoutY="220.0" text="Nombre Repitition :" textFill="#dbb421">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="183.0" layoutY="109.0" text="Nom Exercice : " textFill="#dbb421">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="194.0" layoutY="165.0" text="Categorie : " textFill="#dbb421">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <TextField fx:id="tfNom" layoutX="331.0" layoutY="108.0" prefHeight="26.0" prefWidth="176.0" style="-fx-background-color: #C2FFB3#C2FFB3;" />
+      <TextField fx:id="tfserie" layoutX="331.0" layoutY="219.0" prefHeight="28.0" prefWidth="62.0" style="-fx-background-color: #C2FFB3#C2FFB3;" />
+      <TextField fx:id="tfrepit" layoutX="573.0" layoutY="219.0" prefHeight="28.0" prefWidth="62.0" style="-fx-background-color: #C2FFB3#C2FFB3;" />
+      <TextArea fx:id="tfdesc" layoutX="331.0" layoutY="324.0" prefHeight="52.0" prefWidth="170.0" style="-fx-background-color: #C2FFB3#C2FFB3;" />
+      <TextField fx:id="tfcategorie" layoutX="331.0" layoutY="164.0" prefHeight="26.0" prefWidth="176.0" style="-fx-background-color: #C2FFB3#C2FFB3;" />
+      <ToolBar prefHeight="43.0" prefWidth="698.0" style="-fx-background-color: #DCDCDC #DCDCDC;">
+         <items>
+            <Button fx:id="btnProg" mnemonicParsing="false" onAction="#NavProg" prefHeight="32.0" prefWidth="329.0" style="-fx-background-color: #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC;" text="Les Programmes" />
+            <Button fx:id="btnExList" mnemonicParsing="false" onAction="#AfficherExercice" prefHeight="32.0" prefWidth="345.0" style="-fx-background-color: #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC #3D9EFC#3D9EFC;" text="Les Exercicces" />
+         </items>
+      </ToolBar>
+      <Button fx:id="afficherExercice" layoutX="479.0" layoutY="407.0" mnemonicParsing="false" onAction="#AfficherExercice" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #3D9EFC#3D9EFC #3D9EFC#3D9EFC;" text="Afficher " />
+   </children>
+</AnchorPane>
