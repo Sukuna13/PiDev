@@ -161,7 +161,9 @@ public class AdminListAdmins implements Initializable{
 		
 		
 		
-		System.out.println("bloob: "+connected.getRetrievedImage());
+		if(connected.getRetrievedImage()!=null) {
+     System.out.println("bloob: "+connected.getRetrievedImage());
+			
 		InputStream inputstreatm;
 		try {
 			inputstreatm = connected.getRetrievedImage().getBinaryStream();
@@ -170,7 +172,7 @@ public class AdminListAdmins implements Initializable{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}}
 		
 	}
 	
@@ -277,7 +279,7 @@ public void afficherUsers(ActionEvent e) {
 static Utilisateur connected;
 public void setTantque( Utilisateur connected, String tantque) {
 	this.connected=connected;
-	this.tantque.setText(tantque+" "+connected.getPrenom()); 
+	this.tantque.setText(connected.getNom()+" "+connected.getPrenom()); 
 	this.userType.setText(connected.getWhoami());
 }
 
@@ -285,6 +287,7 @@ public void setTantque( Utilisateur connected, String tantque) {
 @FXML
 private Text notsuper;
 public void addAdmin(ActionEvent e) {
+	AdminAddUserCtrl.connected=connected;
 	if(connected.getWhoami().equals("Super")) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("AdmnAddUserCtrl.fxml"));
 		try {

@@ -18,9 +18,6 @@ import javax.mail.internet.MimeMessage;
 
 import fitnessny.entities.Utilisateur;
 import fitnessny.service.GetService;
-import gui.Coach.GestionCoachController;
-import gui.Salle.GestionCourController;
-import gui.Sportif.GestionSportifController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,8 +54,9 @@ public class LoginController implements Initializable{
 		gs=new GetService();
 		//tester s'il existe
 		if(gs.isexist(adresseMail.getText(), mdp.getText())) {
-			Utilisateur connected = gs.getByMailAndPwd(adresseMail.getText(), mdp.getText());
+			Utilisateur connected = gs.getByMailAndPwd(adresseMail.getText().toString(), mdp.getText().toString());
 			
+			AdminHome.connected=connected;
 			System.out.println(connected);
 			//tester s'il est bloqué
 			if(connected.getUnbloc()==null) {
@@ -66,7 +64,7 @@ public class LoginController implements Initializable{
 			//entrer dans la page admin
 			if(gs.getByMailAndPwd(adresseMail.getText(), mdp.getText()).getWhoami().equals("Administrateur")
 					||gs.getByMailAndPwd(adresseMail.getText(), mdp.getText()).getWhoami().equals("Super")){
-				AdminHome.connected=connected;
+				
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHome.fxml"));
 				try {
 					Parent root  = loader.load();
@@ -84,12 +82,10 @@ public class LoginController implements Initializable{
 			}
 			//entrer à la page du coach
 			else if(gs.getByMailAndPwd(adresseMail.getText(), mdp.getText()).getWhoami().equals("Coach")){
-                            GestionCoachController.connected=connected;
-                            System.out.println("----------"+connected);
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/Coach/GestionCoach.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("CoachHome.fxml"));
 				try {
 					Parent root  = loader.load();
-					GestionCoachController hc = loader.getController();
+					CoachHomeController hc = loader.getController();
 					//pour ne pas instancier une autre scene
 					adresseMail.getScene().setRoot(root);
 				} catch (IOException e2) {
@@ -98,11 +94,10 @@ public class LoginController implements Initializable{
 			}
 			
 			else if(gs.getByMailAndPwd(adresseMail.getText(), mdp.getText()).getWhoami().equals("Sportif")){
-                            GestionSportifController.connected=connected;
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/Sportif/GestionSportif.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("SportifHome.fxml"));
 				try {
 					Parent root  = loader.load();
-					GestionSportifController hc = loader.getController();
+					SportifHomeController hc = loader.getController();
 					//pour ne pas instancier une autre scene
 					adresseMail.getScene().setRoot(root);
 				} catch (IOException e2) {
@@ -110,11 +105,10 @@ public class LoginController implements Initializable{
 				}
 			} 
 			else if(gs.getByMailAndPwd(adresseMail.getText(), mdp.getText()).getWhoami().equals("Gérant")){
-                            GestionCourController.connected=connected;
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/Salle/GestionCour.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("GerantHome.fxml"));
 				try {
 					Parent root  = loader.load();
-					GestionCourController hc = loader.getController();
+					GérantHomeController hc = loader.getController();
 					//pour ne pas instancier une autre scene
 					adresseMail.getScene().setRoot(root);
 				} catch (IOException e2) {
@@ -195,7 +189,7 @@ protected PasswordAuthentication getPasswordAuthentication() {
     	  
     	  
           String confcode=GetService.generateCodeToResetPwd();
-
+          CodeConfirmation.isfromlogin=true;
     	  FXMLLoader loader = new FXMLLoader(getClass().getResource("CodeConfirmation.fxml"));
 			try {
 				Parent root  = loader.load();

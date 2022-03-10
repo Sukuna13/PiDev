@@ -1,8 +1,12 @@
 package application;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import fitnessny.configr.MyConnection;
@@ -14,16 +18,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 public class AdminAddUserCtrl  implements Initializable
 {
+	
+	@FXML
+	private ImageView imageView;
+	
+	@FXML
+	private Text userType;
+	
 	
 	   
 	@FXML
@@ -45,6 +60,11 @@ public class AdminAddUserCtrl  implements Initializable
 	
 	@FXML
 	private Text adressenonvalide;
+	
+	FileInputStream fileinputSteam;
+
+	@FXML
+	private Button uploadButton;
 	
     
     @FXML
@@ -131,68 +151,7 @@ public class AdminAddUserCtrl  implements Initializable
     			adresse.getText().length()!=0 && mdp.getText().length()!=0){
     		
     			
-//    		
-//    		
-//    		
-// 		   // Recipient's email ID needs to be mentioned.
-//         String to = "kefiskander99@gmail.com";
-//
-//         // Sender's email ID needs to be mentioned
-//         String from = "skander.kefi@esprit.tn";
-//
-//         // Assuming you are sending email from through gmails smtp
-//         String host = "smtp.gmail.com";
-//
-//         // Get system properties
-//         Properties properties = System.getProperties();
-//
-//         // Setup mail server
-//         properties.put("mail.smtp.host", host);
-//         properties.put("mail.smtp.port", "465");
-//         properties.put("mail.smtp.ssl.enable", "true");
-//         properties.put("mail.smtp.auth", "true");
-//
-//         // Get the Session object.// and pass username and password
-//         Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
-//
-//             protected PasswordAuthentication getPasswordAuthentication() {
-//
-//                 return new PasswordAuthentication("skander.kefi@esprit.tn", "213JMT2132");
-//
-//             }
-//
-//         });
-//
-//         // Used to debug SMTP issues
-//         session.setDebug(true);
-//
-//         try {
-//             // Create a default MimeMessage object.
-//             MimeMessage message = new MimeMessage(session);
-//
-//             // Set From: header field of the header.
-//             message.setFrom(new InternetAddress(from));
-//
-//             // Set To: header field of the header.
-//             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-//
-//             // Set Subject: header field
-//             message.setSubject("This is the Subject Line!");
-//
-//             // Now set the actual message
-//             message.setText("This is actual message");
-//
-//             System.out.println("sending...");
-//             // Send message
-//             Transport.send(message);
-//             System.out.println("Sent message successfully....");
-//         } catch (MessagingException mex) {
-//             mex.printStackTrace();
-//         }
-    		
-    		
-    		
-    		
+
     		
     	String name = nom.getText();
     	String prenoom = prenom.getText();
@@ -205,7 +164,7 @@ public class AdminAddUserCtrl  implements Initializable
     	Date datenaissance = Date.valueOf(datenais.getValue());
     	
     	
-    	Utilisateur user = new Utilisateur(name, prenoom, adress, tel, motdp, mailadress, datenaissance, whoamii,null,null,null,null);
+    	Utilisateur user = new Utilisateur(name, prenoom, adress, tel, motdp, mailadress, datenaissance, whoamii,null,null,fileinputSteam,null);
     	//getting connection
 		MyConnection cnx=MyConnection.getInstance();
 		CreateService gs = new CreateService();
@@ -230,6 +189,19 @@ public class AdminAddUserCtrl  implements Initializable
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		if(connected.getRetrievedImage()!=null) {
+		     System.out.println("admin add bloob: "+connected.getRetrievedImage());
+					
+				InputStream inputstreatm;
+				try {
+					inputstreatm = connected.getRetrievedImage().getBinaryStream();
+					Image image = new Image(inputstreatm);
+					imageView.setImage(image);
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}}
 		
 		
 	}
@@ -268,7 +240,8 @@ public class AdminAddUserCtrl  implements Initializable
 	private Text tantque;
 	public void setTantque( Utilisateur connected, String tantque) {
 		this.connected=connected;
-		this.tantque.setText(tantque); 
+		this.tantque.setText(connected.getNom()+" "+connected.getPrenom()); 
+		this.userType.setText(connected.getWhoami());
 	}
 	
 	
@@ -418,17 +391,26 @@ public void logout(ActionEvent e) {
 	});
 	
 	
-	
-	
-	
 }
 
 
 
 
+public void uploadImage(ActionEvent e) {
+	
+	FileChooser filechooser = new FileChooser();
+	File file = filechooser.showOpenDialog(uploadButton
+			.getScene().getWindow());
+	try {
+		 fileinputSteam =new FileInputStream(file);
+		
+	} catch (Exception e2) {
+		// TODO: handle exception
+	}
 
 
 
+}
 
 
 

@@ -64,11 +64,11 @@ public class GetService {
 		List<Utilisateur> users = new ArrayList<>();
 		users = displayAllUsers();
 		for (Utilisateur user : users) {
-			if (user.getMailAddress().equals(mailAddress) && user.getPassword().equals(password) ) 
+			if (user.getMailAddress().equals(mailAddress) && checkpassword(password, user.getPassword())) 
 			{utilisateur=user;}
 		}
 		
-		//&& checkpassword(password, user.getPassword())
+		
 		if(utilisateur==null) {
 			return false;
 		}else {
@@ -125,10 +125,10 @@ public Utilisateur getByMailAndPwd(String mailAddress, String password) {
 		List<Utilisateur> users = new ArrayList<>();
 		users = displayAllUsers();
 		for (Utilisateur user : users) {
-			if (user.getMailAddress().equals(mailAddress) && user.getPassword().equals(password))
+			if (user.getMailAddress().equals(mailAddress) && checkpassword(password, user.getPassword()))
 			{utilisateur=user;}
 		}
-		//&& checkpassword(password, user.getPassword())
+		
 		
 		return utilisateur;
 			

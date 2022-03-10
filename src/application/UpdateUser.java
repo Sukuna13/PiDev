@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -15,10 +17,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 public class UpdateUser implements Initializable{
@@ -53,15 +57,25 @@ public class UpdateUser implements Initializable{
 	
 	int nbValid;
 	
+	
+	@FXML
+	private Button uploadButton;
+	
+	FileInputStream fileinputSteam;
+
+	
     
-    @FXML
+    
     public void updateIt(ActionEvent event)
 {
+    	nbValid=0;
+    	System.out.println("method update entering");
     	if(nom.getText().length()==0 ) {
     		nom.setStyle("-fx-border-color:red; -fx-border-width:2px;");
     		new animatefx.animation.Shake(nom).setDelay(Duration.seconds(0)).play();
     	}else {
     		nbValid++;
+    		System.out.println(nbValid);
     		nom.setStyle(null);
     	}
     	
@@ -73,7 +87,10 @@ public class UpdateUser implements Initializable{
     	}else {
     		adressenonvalide.setText("");
     		adressemail.setStyle(null);
+    		
     		nbValid++;
+    		System.out.println(nbValid);
+
 
     	}
     	
@@ -84,6 +101,8 @@ public class UpdateUser implements Initializable{
     	}else {
     		nbValid++;
     		adressemail.setStyle(null);
+    		System.out.println(nbValid);
+
     	}
     	
     	 
@@ -93,25 +112,15 @@ public class UpdateUser implements Initializable{
     	}else {
     		nbValid++;
     		adresse.setStyle(null);
+    		System.out.println(nbValid);
+
     	}
     	
     	
     		
     		
     		
-    		
-    		
-    		
-    		
-    		
-//    		
-//    	 if(mdp.getText().length()==0) {
-//    		mdp.setStyle("-fx-border-color:red; -fx-border-width:2px;");
-//    		new animatefx.animation.Shake(mdp).setDelay(Duration.seconds(0)).play();
-//    	}else {
-//    		mdp.setStyle(null);
-//    	}
-    	 
+    	
     	 //controle de saisie de mot de passe
     	 boolean isValid = true;
             if (mdp.getText().toString().length() > 15 || mdp.getText().toString().length() < 8)
@@ -158,6 +167,8 @@ public class UpdateUser implements Initializable{
             	passwordctrl.setText("");
             	mdp.setStyle(null);
             	nbValid++;
+        		System.out.println(nbValid);
+
             }
     	 
     	 
@@ -173,7 +184,21 @@ public class UpdateUser implements Initializable{
     	}else {
     		datenais.setStyle(null);
     		nbValid++;
+    		System.out.println(nbValid);
+
     	}
+    	 
+    	 if(datenais.getValue()!=null && datenais.getValue().toString()=="") {
+    		 datenais.setStyle("-fx-border-color:red; -fx-border-width:2px;");
+    		new animatefx.animation.Shake(datenais).setDelay(Duration.seconds(0)).play();
+    	}else {
+    		datenais.setStyle(null);
+    		nbValid++;
+    		System.out.println(nbValid);
+
+    	}
+    	 
+    	 
     	 
     	
     	 
@@ -185,6 +210,8 @@ public class UpdateUser implements Initializable{
     	}else {
     		prenom.setStyle(null);
     		nbValid++;
+    		System.out.println(nbValid);
+
     	}
     	 
     	 
@@ -215,14 +242,16 @@ public class UpdateUser implements Initializable{
     				telControll.setText("");
 		    		numtel.setStyle(null);
 		    		nbValid++;
+		    		System.out.println(nbValid);
+
     			}
     		}
     	
     	 
     	 
     	
-    	if (nbValid==8) {
-    			
+    	if (nbValid==9) {
+    			System.out.println("update method entering");
 	    	connected.setNom(nom.getText());
 	    	connected.setPrenom(prenom.getText()) ;
 	    	connected.setMailAddress(adressemail.getText()) ;
@@ -230,7 +259,8 @@ public class UpdateUser implements Initializable{
 	    	connected.setNumTel(numtel.getText()); 
 	    	connected.setAdresse(adresse.getText()); 
 	    	connected.setDateNaissance(Date.valueOf(datenais.getValue()));
-	    	
+	    	connected.setImage(fileinputSteam);
+	    	System.out.println("hahahahafrom update "+fileinputSteam);
 	    	 
 			UpdateService us = new UpdateService();
 			GetService getsv= new GetService();
@@ -241,6 +271,7 @@ public class UpdateUser implements Initializable{
     	//getting connection
 		MyConnection cnx=MyConnection.getInstance();
 		us.updateUser(connected);
+		System.out.println("sent to update");
 		if(connected.getWhoami().equals("Administrateur")) {
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminHome.fxml"));
 		try {
@@ -258,15 +289,17 @@ public class UpdateUser implements Initializable{
 			
 
     
-    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		this.connected=AdminHome.connected;
-		System.out.println("init mlou"+this.connected);
 		this.nom.setText(connected.getNom());
 		this.prenom.setText(connected.getPrenom());
 		this.datenais.setValue(this.connected.getDateNaissance().toLocalDate());
-		System.out.println("init flkhr"+this.connected);
+		this.adressemail.setText(this.connected.getMailAddress());
+		this.mdp.setText(this.connected.getPassword());
+		this.numtel.setText(this.connected.getNumTel());
+		this.adresse.setText(this.connected.getAdresse());
+
 
 		nbValid=0;
 		
@@ -381,7 +414,21 @@ public void afficherUsers(ActionEvent e) {
 }
 
 	
+public void uploadImage(ActionEvent e) {
 	
+	FileChooser filechooser = new FileChooser();
+	File file = filechooser.showOpenDialog(uploadButton
+			.getScene().getWindow());
+	try {
+		 fileinputSteam =new FileInputStream(file);
+		System.out.println("from upload mthd "+fileinputSteam);
+	} catch (Exception e2) {
+		// TODO: handle exception
+	}
+
+
+
+}
 	
 	
 	

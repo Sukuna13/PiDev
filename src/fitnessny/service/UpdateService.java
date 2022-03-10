@@ -1,5 +1,6 @@
 package fitnessny.service;
 
+import java.io.IOException;
 import java.sql.Connection; 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -24,9 +25,8 @@ public class UpdateService {
 
 
 
-
 	public void updateUser(Utilisateur user) {
-		String req = "UPDATE Utilisateur SET nom=? , prenom=? , adresse=? , dateNaissance=? , adresseMail=? , motDePasse=? , numTel=? , whoami=? , blocRaison=? , unbloc=? WHERE id=?";
+		String req = "UPDATE Utilisateur SET nom=? , prenom=? , adresse=? , dateNaissance=? , adresseMail=? , motDePasse=? , numTel=? , whoami=? , blocRaison=? , unbloc=? , image=? WHERE id=?";
 		try {
 			PreparedStatement psst=cnx.prepareStatement(req);
 			psst.setString(1, user.getNom());
@@ -39,7 +39,13 @@ public class UpdateService {
 			psst.setString(8, user.getWhoami());
 			psst.setString(9, user.getBlocRaison());
 			psst.setDate(10, user.getUnbloc());
-			psst.setInt(11, user.getId());
+			if(user.getImage()!=null) {
+			psst.setBinaryStream(11, user.getImage(),user.getImage().available());
+			}else {
+			psst.setBinaryStream(11, user.getImage());
+
+			}
+			psst.setInt(12, user.getId());
 
 			
 			
@@ -47,6 +53,9 @@ public class UpdateService {
 			psst.executeUpdate();
 			System.out.println("updated successfully !!!!!");
 		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

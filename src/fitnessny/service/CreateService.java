@@ -34,8 +34,17 @@ public class CreateService {
 			psst.setString(8, user.getNumTel());
 			psst.setString(9, user.getBlocRaison());
 			psst.setDate(10, user.getUnbloc());
-			psst.setBinaryStream(11, user.getImage(),user.getImage().available());
 
+
+			
+			if(user.getImage()!=null) {
+				psst.setBinaryStream(11, user.getImage(),user.getImage().available());
+				}else {
+				psst.setBinaryStream(11, user.getImage());
+
+				}
+
+			
 
 			psst.executeUpdate();
 			System.out.println("added successfully !!!!!");

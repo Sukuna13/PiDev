@@ -145,18 +145,21 @@ public class AdminHome implements Initializable{
 		            }
 		            coachTable.setItems(subentries);
 		        });
-	//	System.out.println("bloob: "+connected.getRetrievedImage());
+		
+		GetService gs = new GetService();
+		connected = gs.getByMail(connected.getMailAddress());
+		
+		if(connected.getRetrievedImage()!=null) {
+		System.out.println("bloob: "+connected.getRetrievedImage());
 		InputStream inputstreatm;
 		try {
-                        GetService gs = new GetService();
-                        connected = gs.getByMail(connected.getMailAddress());
 			inputstreatm = connected.getRetrievedImage().getBinaryStream();
 			Image image = new Image(inputstreatm);
 			imageView.setImage(image);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}}
 		
 		
 	}
@@ -217,7 +220,7 @@ public class AdminHome implements Initializable{
 	
 	public void setTantque( Utilisateur connected, String tantque) {
 		this.connected=connected;
-		this.tantque.setText(tantque+" "+connected.getPrenom()); 
+		this.tantque.setText(connected.getNom()+" "+connected.getPrenom()); 
 		this.userType.setText(connected.getWhoami());
 		
 	}
@@ -260,7 +263,6 @@ public void deleteAdmin(ActionEvent e) {
 			e2.printStackTrace();
 		}
 		
-		System.out.println("mrigl !");
 		deleteField.setVisible(false);
 		deleteField.setText("");
 		saisissezId.setText("");

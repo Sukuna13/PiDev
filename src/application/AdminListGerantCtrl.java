@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -23,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
@@ -34,8 +37,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 
 public class AdminListGerantCtrl implements Initializable{
+	
+	
+	
+	
+	@FXML
+	private Text deleteError;
 	
 	
 	@FXML
@@ -58,7 +68,7 @@ public class AdminListGerantCtrl implements Initializable{
 	
 	@FXML
 	private  ChoiceBox<String> blocChoice;
-	private String[] whyBlocking = {"takfer barcha","jabri","nattar","frère"};
+	private String[] whyBlocking = {"Language vulgaire","plus qu'un compte"};
 
 	
 	@FXML 
@@ -106,6 +116,10 @@ public class AdminListGerantCtrl implements Initializable{
 	
 	
 	ObservableList<Utilisateur> users = afficherCoachs();
+	
+	
+	FileInputStream fileinputSteam;
+
 	
 
 
@@ -158,7 +172,7 @@ public class AdminListGerantCtrl implements Initializable{
 		        });
 		
 		
-		
+		if(connected.getRetrievedImage()!=null) {
 		System.out.println("bloob: "+connected.getRetrievedImage());
 		InputStream inputstreatm;
 		try {
@@ -170,7 +184,7 @@ public class AdminListGerantCtrl implements Initializable{
 			e.printStackTrace();
 		}
 	}
-	
+	}
 	
 	
 	public ObservableList<Utilisateur> afficherCoachs(){
@@ -219,6 +233,7 @@ public void gotogerantlist(ActionEvent e) {
 
 public void gotosportiflist(ActionEvent e) {
 	
+	AdminListSportifs.connected=connected;
 	FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminListSportif.fxml"));
 	try {
 		Parent root  = loader.load();
@@ -266,7 +281,7 @@ public void afficherUsers(ActionEvent e) {
 
 public void setTantque( Utilisateur connected, String tantque) {
 	this.connected=connected;
-	this.tantque.setText(tantque+" "+connected.getPrenom()); 
+	this.tantque.setText(connected.getNom()+" "+connected.getPrenom()); 
 	this.userType.setText(connected.getWhoami());
 	
 }
@@ -280,6 +295,7 @@ public void deleteGerant(ActionEvent e) {
 	DeleteService ds = new DeleteService();
 	GetService gs = new GetService();
 	whatdo++;
+	System.out.println("whatdo"+whatdo);
 	if((whatdo%2)!=0) {
 		deleteinput.setVisible(true);
 	}
@@ -313,15 +329,15 @@ public void deleteGerant(ActionEvent e) {
 		deleteinput.setText("");
 		deleteinput.setText("");
 		}else if(!intid) {
-			deleteinput.setText("invalide !");
+			deleteError.setText("invalide !");
 			whatdo++;
 		}
 			else {
-				deleteinput.setText("Inexistant !");
+				deleteError.setText("Inexistant !");
 				whatdo++;
 			}
 		}else {
-			deleteinput.setText("saisissez Id");
+			deleteError.setText("saisissez Id");
 			whatdo++;
 		}
 	}
@@ -572,10 +588,6 @@ public static Date addDays(Date date, int days) {
   c.add(Calendar.DATE, days);
   return new Date(c.getTimeInMillis());
 }
-
-
-
-
 
 
 

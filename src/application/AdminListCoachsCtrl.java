@@ -39,6 +39,9 @@ import javafx.scene.text.Text;
 public class AdminListCoachsCtrl implements Initializable{
 	
 	@FXML
+	private Text deleteError;
+	
+	@FXML
 	private ImageView imageView;
 	
 	@FXML
@@ -157,7 +160,7 @@ public class AdminListCoachsCtrl implements Initializable{
 		            coachTable.setItems(subentries);
 		        });
 		
-		
+		if(connected.getRetrievedImage()!=null) {
 		System.out.println("bloob: "+connected.getRetrievedImage());
 		InputStream inputstreatm;
 		try {
@@ -169,7 +172,7 @@ public class AdminListCoachsCtrl implements Initializable{
 			e.printStackTrace();
 		}
 		
-	}
+	}}
 	
 	
 	
@@ -276,7 +279,7 @@ public void afficherUsers(ActionEvent e) {
 
 public void setTantque(Utilisateur connected , String tantque) {
 	this.connected=connected;
-	this.tantque.setText(tantque+" "+connected.getPrenom()); 
+	this.tantque.setText(connected.getNom()+" "+connected.getPrenom()); 
 	this.userType.setText(connected.getWhoami());
 }
 
@@ -323,15 +326,15 @@ public void deleteCoach(ActionEvent e) {
 		deleteinput.setText("");
 		deleteinput.setText("");
 		}else if(!intid) {
-			deleteinput.setText("invalide !");
+			deleteError.setText("invalide !");
 			whatdo++;
 		}
 			else {
-				deleteinput.setText("Inexistant !");
+				deleteError.setText("Inexistant !");
 				whatdo++;
 			}
 		}else {
-			deleteinput.setText("saisissez Id");
+			deleteError.setText("saisissez Id");
 			whatdo++;
 		}
 	}
