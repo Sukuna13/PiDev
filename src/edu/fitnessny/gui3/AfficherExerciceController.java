@@ -127,35 +127,7 @@ public class AfficherExerciceController implements Initializable {
         TabExe.setEditable(true);
         pagination.setPageFactory(this::createPage);
 
-//       
-//        FilteredList <Exercice>  filteredData = new FilteredList<>(Exercice, b -> true);
-//        tfFilter.textProperty().addListener((observable, oldValue, newValue) -> {
-//			
-//            filteredData.setPredicate((Exercice) -> {
-//				// If filter text is empty, display all persons.
-//								
-//				if (newValue == null || newValue.isEmpty()) {
-//					return true;
-//				}
-//				
-//				// Compare first name and last name of every person with filter text.
-//				String lowerCaseFilter = newValue.toLowerCase();
-//				
-//				if (Exercice.getNomExercice().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-//					return true; // Filter matches first name.
-//				}
-//        
-//				
-//				     else  
-//				    	 return false; // Does not match.
-//			});
-//		});
-//        
-//        		SortedList<Exercice> sortedData = new SortedList<>(filteredData);
-//                      	sortedData.comparatorProperty().bind(TabExe.comparatorProperty());
-//                        
-//                        TabExe.setItems(sortedData);
-        // TODO
+
     }
 
     private ObservableList<Exercice> AfficherExercice() {
@@ -303,5 +275,41 @@ public class AfficherExerciceController implements Initializable {
   stage.setScene(scene);
   stage.show();
     }
+    @FXML
+    private void Filter(){
+   
+ // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Exercice> filteredData = new FilteredList<>(this.AfficherExercice(), b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		tfFilter.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(Exercice -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				
+				 if (String.valueOf(Exercice.getNomExercice()).indexOf(lowerCaseFilter)!=-1)
+				     return true;
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Exercice> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(TabExe.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		TabExe.setItems(sortedData);
 
+}
 }

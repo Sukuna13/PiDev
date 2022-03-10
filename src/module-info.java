@@ -25,6 +25,8 @@ module Fitnessny {
     requires filechooser;
     requires NotificationAPI;
     requires controlsfx;
+    requires itextpdf;
+    requires itextpdf;
     
    
     

@@ -7,6 +7,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -14,7 +17,7 @@
    <children>
       <AnchorPane layoutX="-2.0" prefHeight="500.0" prefWidth="158.0" style="-fx-background-color: #8D8D8D8D8D8D;">
          <children>
-            <Button fx:id="ajouterexe" layoutY="177.0" mnemonicParsing="false" onAction="#AjouterExe" prefHeight="26.0" prefWidth="165.0" style="-fx-background-color: #3D9EFC #3D9EFC;" text="Ajouter " />
+            <Button fx:id="ajouterexe" layoutX="10.0" layoutY="174.0" mnemonicParsing="false" onAction="#AjouterExe" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #3D9EFC #3D9EFC;" text="Ajouter " />
          </children></AnchorPane>
       <TableView fx:id="TabExe" layoutX="170.0" layoutY="127.0" prefHeight="314.0" prefWidth="483.0" style="-fx-border-width: 2;">
         <columns>
@@ -25,20 +28,36 @@
             <TableColumn fx:id="Description" prefWidth="119.0" text="Description" />
         </columns>
       </TableView>
-      <Button fx:id="btnSupprimer" layoutX="1.0" layoutY="250.0" mnemonicParsing="false" onAction="#SupprimerExercice" prefHeight="26.0" prefWidth="158.0" style="-fx-background-color: #3D9EFC #3D9EFC;" text="Supprimer" />
+      <Button fx:id="btnSupprimer" layoutX="7.0" layoutY="250.0" mnemonicParsing="false" onAction="#SupprimerExercice" prefHeight="26.0" prefWidth="146.0" style="-fx-background-color: #3D9EFC #3D9EFC;" text="Supprimer" />
       <ToolBar layoutX="151.0" layoutY="-7.0" prefHeight="43.0" prefWidth="542.0" style="-fx-background-color: #DCDCDC;">
         <items>
           <Button fx:id="btntoprogramme" mnemonicParsing="false" onAction="#NavProgramme" prefHeight="32.0" prefWidth="244.0" style="-fx-background-color: #3D9EFC #3D9EFC;" text="Les Programmes" />
             <Button fx:id="btnExe" mnemonicParsing="false" prefHeight="32.0" prefWidth="249.0" style="-fx-background-color: #3D9EFC #3D9EFC;" text="Les Exercicces" />
         </items>
       </ToolBar>
-      <Text fill="#69ff43" layoutX="290.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Des Exercices" textAlignment="CENTER" underline="true" wrappingWidth="210.21630859375">
+      <Text layoutX="290.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Des Exercices" textAlignment="CENTER" underline="true" wrappingWidth="210.21630859375">
          <font>
             <Font name="AppleGothic Regular" size="21.0" />
          </font>
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.05000000074505806" green="0.14499999582767487" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="0.5694444179534912" blue="0.5694444179534912" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
       </Text>
       <Button fx:id="btnRefresh" layoutX="592.0" layoutY="93.0" mnemonicParsing="false" onAction="#RefreshTable" style="-fx-background-color: #3D9EFC;" text="Refresh" textFill="WHITE" />
-      <Pagination fx:id="pagination" currentPageIndex="1" layoutX="193.0" layoutY="446.0" pageCount="100" prefHeight="47.0" prefWidth="399.0" />
-      <TextField fx:id="tfFilter" layoutX="170.0" layoutY="96.0" prefHeight="26.0" prefWidth="354.0" promptText="Filter" />
+      <Pagination fx:id="pagination" layoutX="193.0" layoutY="446.0" pageCount="20" prefHeight="47.0" prefWidth="399.0" />
+      <TextField fx:id="tfFilter" layoutX="170.0" layoutY="96.0" onAction="#Filter" prefHeight="26.0" prefWidth="354.0" promptText="Filter" />
    </children>
 </AnchorPane>
