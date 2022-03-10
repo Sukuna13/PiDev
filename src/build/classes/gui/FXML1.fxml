@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXML1Controller">
+   <children>
+      <ImageView fitHeight="599.0" fitWidth="1010.0" layoutX="-60.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-60.0" AnchorPane.topAnchor="1.0">
+         <image>
+            <Image url="@Capture.PNG" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="500.0" prefWidth="224.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="12.0" layoutY="507.0" onMouseClicked="#quitter" prefHeight="70.0" prefWidth="200.0" style="-fx-background-radius: 60;" styleClass="container" stylesheets="@statistiques.css">
+               <children>
+                  <Label layoutX="52.0" layoutY="13.0" text="Retour" textFill="#80684b">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="12.0" layoutY="237.0" onMouseClicked="#tableaudebord" prefHeight="70.0" prefWidth="200.0" style="-fx-background-radius: 60;" styleClass="container" stylesheets="@statistiques.css">
+               <children>
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="30.0" prefWidth="187.0" text="Tableau de bord" textFill="#80684b">
+                     <font>
+                        <Font name="Arial Bold" size="23.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="12.0" layoutY="411.0" onMouseClicked="#pdf1" prefHeight="70.0" prefWidth="200.0" style="-fx-background-radius: 60;" styleClass="container" stylesheets="@statistiques.css">
+               <children>
+                  <Label layoutX="14.0" layoutY="20.0" prefHeight="30.0" prefWidth="187.0" text="Fichier Excel" textFill="#80684b">
+                     <font>
+                        <Font name="Arial Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="12.0" layoutY="151.0" onMouseClicked="#interfaceemployés" prefHeight="70.0" prefWidth="200.0" style="-fx-background-radius: 60;" styleClass="container" stylesheets="@statistiques.css" AnchorPane.bottomAnchor="379.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="151.0">
+               <children>
+                  <Label layoutX="2.0" layoutY="20.0" text="Gerer Employés" textFill="#80684b">
+                     <font>
+                        <Font name="Arial Bold" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="12.0" layoutY="330.0" onMouseClicked="#abonnement" prefHeight="70.0" prefWidth="200.0" style="-fx-background-radius: 60;" styleClass="container" stylesheets="@statistiques.css">
+               <children>
+                  <Label layoutY="20.0" prefHeight="30.0" prefWidth="200.0" text="Gerer Abonnement" textFill="#80684b">
+                     <font>
+                        <Font name="Arial Bold" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="12.0" layoutY="55.0" onMouseClicked="#interfaceproduits" prefHeight="70.0" prefWidth="200.0" style="-fx-background-radius: 60;" styleClass="container" stylesheets="@statistiques.css">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <children>
+                  <Label layoutX="12.0" layoutY="20.0" text="Gerer Produits" textFill="#80684b">
+                     <font>
+                        <Font name="Arial Bold" size="25.0" />
+                     </font>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="root" layoutX="224.0" prefHeight="593.0" prefWidth="727.0" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="575.0" fitWidth="681.0" layoutX="52.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@capture1.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

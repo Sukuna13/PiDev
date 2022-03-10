@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Paneproduit" prefHeight="580.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXML2Controller">
+   <children>
+      <ImageView fitHeight="425.0" fitWidth="726.0" layoutX="3.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-6.0" AnchorPane.rightAnchor="1.0">
+         <image>
+            <Image url="@Capture.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="448.0" fitWidth="717.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Capture.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="368.0" layoutY="54.0" text="Rechercher">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txt_searchId" layoutX="525.0" layoutY="61.0" prefHeight="26.0" prefWidth="134.0" promptText="Id_produit" />
+      <TextField fx:id="txt_lib" layoutX="16.0" layoutY="150.0" prefHeight="26.0" prefWidth="210.0" promptText="libelle">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_prix" layoutX="19.0" layoutY="233.0" prefHeight="26.0" prefWidth="204.0" promptText="prix">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_desc" layoutX="19.0" layoutY="274.0" prefHeight="26.0" prefWidth="204.0" promptText="description_prod">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_mar" layoutX="19.0" layoutY="192.0" prefHeight="26.0" prefWidth="204.0" promptText="marque">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_quan" layoutX="251.0" layoutY="192.0" prefHeight="26.0" prefWidth="126.0" promptText="quantite">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_not" layoutX="251.0" layoutY="150.0" prefHeight="26.0" prefWidth="126.0" promptText="note">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <Label fx:id="lab_url" layoutX="329.0" layoutY="240.0" prefHeight="22.0" prefWidth="110.0" text="aucune séléctionée">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table_produit" fixedCellSize="0.0" layoutY="340.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#Selected" prefHeight="162.0" prefWidth="696.0" tableMenuButtonVisible="true">
+         <columns>
+            <TableColumn fx:id="id_pr" minWidth="0.0" prefWidth="25.0" text="id" />
+            <TableColumn fx:id="cate_pro" prefWidth="63.0" text="categorie" />
+            <TableColumn fx:id="lib_pro" prefWidth="66.0" text="libelle" />
+            <TableColumn fx:id="mar_pro" prefWidth="63.99993896484375" text="marque" />
+            <TableColumn fx:id="prix_pro" prefWidth="52.0" text="prix" />
+            <TableColumn fx:id="desc_pro" prefWidth="76.79998779296875" text="description" />
+            <TableColumn fx:id="disp_pro" prefWidth="95.199951171875" text="disponibilite" />
+            <TableColumn fx:id="note_pro" editable="false" prefWidth="76.800048828125" sortType="DESCENDING" sortable="false" text="note" />
+            <TableColumn fx:id="qua_prod" prefWidth="76.800048828125" text="quantite" />
+         </columns>
+         
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color blue="0.8061182498931885" green="0.06775828450918198" opacity="0.800000011920929" red="0.8315789699554443" />
+               </color>
+            </DropShadow>
+         </effect>
+      </TableView>
+      <ImageView fx:id="image_produit" fitHeight="193.0" fitWidth="210.0" layoutX="439.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="96.0" />
+      <Button layoutX="32.0" layoutY="522.0" mnemonicParsing="false" onAction="#addajout" prefHeight="26.0" prefWidth="142.0" text="Ajouter" />
+      <Button layoutX="277.0" layoutY="522.0" mnemonicParsing="false" onMouseClicked="#editproduit" prefHeight="26.0" prefWidth="142.0" text="Modifier" />
+      <Button layoutX="509.0" layoutY="522.0" mnemonicParsing="false" onMouseClicked="#Suppproduit" prefHeight="26.0" prefWidth="117.0" text="supprimer" />
+      <Button layoutX="557.0" layoutY="300.0" mnemonicParsing="false" onAction="#afichier" prefHeight="25.0" prefWidth="126.0" text="afficher" />
+      <TextField fx:id="txt_cat" layoutX="16.0" layoutY="105.0" prefHeight="26.0" prefWidth="210.0" promptText="categorie">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_desp" layoutX="251.0" layoutY="105.0" prefHeight="26.0" prefWidth="126.0" promptText="disponibilite">
+         <effect>
+            <ColorAdjust brightness="-0.18" contrast="0.07" hue="0.61" saturation="0.33" />
+         </effect></TextField>
+      <TextField fx:id="txt_img" layoutX="251.0" layoutY="274.0" prefHeight="26.0" prefWidth="126.0" />
+      <ImageView fitHeight="26.0" fitWidth="41.0" layoutX="670.0" layoutY="60.0" onMouseClicked="#searchproduit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons8-search-50.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="icon_imprt" fitHeight="26.0" fitWidth="40.0" layoutX="288.0" layoutY="233.0" onMouseClicked="#importimage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@import.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="14.0" layoutY="23.0" text="Gestion des Produits" textFill="#d3ce68">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
